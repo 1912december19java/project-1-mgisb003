@@ -1,0 +1,47 @@
+.btn{
+    background-color: rgb(0, 19, 194);  
+}
+
+.jumbotron{    
+    text-align: right;
+    background-image: url("https://www.tokkoro.com/picsup/1259766-futuristic.jpg");
+    background-size: cover;    
+    background-position: center;
+}
+
+.navbar{    
+    float: right;
+}
+
+#requests-accepted{
+    text-align: center;
+}
+
+#requests-denied{    
+    text-align: center;
+}
+
+#manager-requests{
+    text-align: center;
+}
+
+#employee-accepted{
+    text-align: center;
+}
+
+#employee-denied{    
+    text-align: center;
+}
+
+#employee-requests{
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Reimburse</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="main.css" />
+</head>
+
+<body>
+  <!--Button group nav-->
+  <nav class="navbar navbar-expand-sm">
+    <nav class="btn-group"> 
+        <a class="navbar-brand text-light" href="HomePage.html">Project R</a>       
+          <a class="btn text-light border-0" href="HomePage.html">Home</a>
+          <a class="btn bg-info text-light border-0" href="ManagerLogin.html">Manager</a>
+          <a class="btn text-light border-0" href="EmployeeLogin.html">Employee</a>    
+    </nav>
+</nav>
+
+ <!--Page heading-->
+ <header class="jumbotron text-light jumbotron-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1>Project R</h1>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- content -->
+<main class="container">
+  <div class="row">
+    <div class="col-md-12 text-uppercase text-light" id = "managerLoginHeader">
+      <h2>Manager Login</h2>      
+    </div>    
+    <div class='col-md-12 text-light'>  
+      <form id = 'managerForm' action ='http://localhost:8081/projectr/manager' method='POST'>
+      <label for='managerUsername'>Username</label>
+      <br/>
+      <input type='text' class = 'form-control' name='managerUsername' id='manager-username' placeholder="enter username">
+      <label for='managerPassword'>Password</label>
+      <br/>
+      <input type='text' class = 'form-control' name='managerPassword' id='manager-password' placeholder="enter password">
+      <br/>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="managerCheckbox">
+        <label class="form-check-label" for="managerCheckbox">Remember me</label>
+      </div>
+      <input class="btn text-light" type='submit'>
+ </form>
+  </div>
+</div>  
+    </main>
+    <script src = 'dom.js'></script>     
+</body>
+</html>

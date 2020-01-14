@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Reimburse</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <!--Button group nav-->
+  <nav class="navbar navbar-expand-sm">
+    <nav class="btn-group"> 
+        <a class="navbar-brand text-light" href="HomePage.html">Project R</a>       
+          <a class="btn bg-info text-light border-0" href="HomePage.html">Home</a>
+          <a class="btn text-light border-0" href="ManagerLogin.html">Manager</a>
+          <a class="btn text-light border-0" href="EmployeeLogin.html">Employee</a>        
+    </nav>
+</nav>
+
+ <!--Page heading-->
+ <header class="jumbotron text-light jumbotron-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1>Project R</h1>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- content -->
+<main class="container">
+  <div class="row">
+    <div class="col-md-12 text-uppercase text-light" id = "registerLoginHeader">
+      <h2>Register</h2>      
+    </div>  
+    <div class='col-md-12 text-light'>  
+    <form id = 'registerForm' action ='http://localhost:8081/projectr/register' method='POST'>
+      <br/>
+      <label for='registerFirstName'>First Name</label>
+      <br/>
+      <input type='text' class = 'form-control' name='registerFirstName' id ="register-first-name" placeholder="enter first name">
+      <label for='registerLastName'>Last Name</label>
+      <br/>
+      <input type='text' class = 'form-control' name='registerLastName' id ="register-last-name" placeholder="enter last name">
+      <label for='registerEmail'>Email</label>
+      <br/>
+      <input type='email' class = 'form-control' name='registerEmail' id='register-email' placeholder="enter email">
+      <label for='registerUsername'>Username</label>
+      <br/>
+      <input type='text' class = 'form-control' name='registerUsername' id='register-username' placeholder="enter username">
+      <label for='registerPassword'>Password</label>
+      <br/>
+      <input type='text' class = 'form-control' name='registerPassword' id='register-password' placeholder="enter password">
+      <label for='registerConfirmPassword'>Confirm Password</label>
+      <br/>
+      <input type='text' class = 'form-control' name='registerConfirmPassword' id='register-confirm-password' placeholder="re-enter password"> 
+      <br/>      
+      <input class="btn text-light" type='submit'>
+    </form>
+  </div>
+</div>  
+    </main>
+    <script src = 'dom.js'></script>  
+</body>
+</html>

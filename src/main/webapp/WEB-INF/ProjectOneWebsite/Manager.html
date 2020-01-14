@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Reimburse</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="home.css" />
+  </head>
+  <body>
+    <!--Button group nav-->
+    <nav class="navbar">
+        <nav class="nav-pills"> 
+            <a class="navbar-brand text-light" href="Manager.html">Project R</a>       
+              <a class="btn btn-info text-light border-0" href="ManagerLogin.html">Logout</a>        
+        </nav>
+    </nav>
+
+    <!--Page heading-->
+ <header class="jumbotron text-light jumbotron-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1>Welcome Manager!</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- content -->
+<main class="container">
+    <div class="row">
+      <div class="col-md-6 text-uppercase text-dark" style= ' padding: 20px' id= "manager-requests">
+        <h3>Requests</h3>
+        <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Receipt</th>                             
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table> 
+        </div>     
+      </div>  
+      <div class='col-md-6 text-dark text-uppercase'  style= ' padding: 20px' id="requests-accepted">
+        <h3>Requests Accepted</h3>  
+        <br/>
+      </div>       
+      <div class='col-md-6 offset-md-6 text-dark text-uppercase'  style= ' padding: 20px' id="requests-denied">
+        <h3>Requests Denied</h3>  
+      </div>      
+    </div>
+  </div>  
+  </main>
+
+
+  </body>
+</html>
