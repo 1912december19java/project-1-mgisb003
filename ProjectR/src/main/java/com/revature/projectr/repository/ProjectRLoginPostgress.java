@@ -22,9 +22,7 @@ public class ProjectRLoginPostgress implements LoginDAO {
     }
   
     try {
-      conn = DriverManager.getConnection(
-          "jdbc:postgresql://database-1.cbu886n5wmpw.us-east-1.rds.amazonaws.com:5432/postgres",
-          "postgres", "Krelthor1!");
+      conn = DriverManager.getConnection(System.getenv("urlString"),System.getenv("username"),System.getenv("password"));
     } catch (SQLException e) {
       e.printStackTrace();
     }
@@ -37,7 +35,7 @@ public class ProjectRLoginPostgress implements LoginDAO {
     while (true) {
       try {
         stmt = conn.prepareStatement(
-            "INSERT INTO employeeregister(firstname,lastname,email,username,passcode) VALUES (?,?,?,?,?)");
+            "INSERT INTO employeeRegister(firstname,lastname,email,username,passcode) VALUES (?,?,?,?,?)");
         stmt.setString(1, register.getRegisterFirstName());
         stmt.setString(2, register.getRegisterLastName());
         stmt.setString(3, register.getRegisterEmail());
@@ -82,7 +80,7 @@ public class ProjectRLoginPostgress implements LoginDAO {
     ResultSet rs = null;
 
     try {
-      stmt = conn.prepareStatement("SELECT * FROM employeeLogin WHERE username = ?,passcode = ? ");
+      stmt = conn.prepareStatement("SELECT * FROM employeeRegister WHERE username = ?,passcode = ? ");
       stmt.setString(1, username);
       stmt.setString(2, password);
       stmt.execute();
