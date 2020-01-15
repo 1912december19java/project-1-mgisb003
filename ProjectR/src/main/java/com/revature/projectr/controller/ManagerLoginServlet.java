@@ -5,7 +5,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.revature.projectr.model.ProjectREmployeeLogin;
 import com.revature.projectr.model.ProjectRManagerLogin;
 import com.revature.projectr.repository.LoginDAO;
 import com.revature.projectr.repository.ProjectRLoginPostgress;
@@ -26,14 +25,13 @@ public class ManagerLoginServlet extends HttpServlet {
     
     LoginDAO manLogin = new ProjectRLoginPostgress();
     String username = req.getParameter("managerUsername");
-    String password = req.getParameter("managerPassword");
+    String password = req.getParameter("managerPassword");       
     
-    ProjectRManagerLogin mLogin = new ProjectRManagerLogin(username, password);
+    ProjectRManagerLogin mLogin = manLogin.mLogin(username,password);
     mLogin.setManagerUsername(username);
-    mLogin.setManagerPassword(password);    
-    System.out.println("" + mLogin);
+    mLogin.setManagerPassword(password);      
     
-    manLogin.mLogin(username, password);
+    System.out.println("" + mLogin);
     
   }
   

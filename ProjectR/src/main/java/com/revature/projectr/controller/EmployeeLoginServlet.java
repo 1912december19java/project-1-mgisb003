@@ -5,7 +5,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.revature.projectr.model.ProjectREmployeeLogin;
+import com.revature.projectr.model.ProjectRModelRegister;
+import com.revature.projectr.repository.LoginDAO;
+import com.revature.projectr.repository.ProjectRLoginPostgress;
 
 public class EmployeeLoginServlet extends HttpServlet {
   
@@ -21,13 +23,13 @@ public class EmployeeLoginServlet extends HttpServlet {
   protected void doPost(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
     
-    
+    LoginDAO empLogin = new ProjectRLoginPostgress();    
     String username = req.getParameter("employeeUsername");
     String password = req.getParameter("employeePassword");
     
-    ProjectREmployeeLogin eLogin = new ProjectREmployeeLogin(username, password);
-    eLogin.setEmployeeUsername(username);
-    eLogin.setEmployeePassword(password);
+    ProjectRModelRegister eLogin = empLogin.eLogin(username, password);
+    eLogin.setRegisterUsername(username);
+    eLogin.setRegisterPassword(password);
     
     System.out.println("" + eLogin);
     

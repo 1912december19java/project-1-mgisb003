@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.revature.projectr.model.ProjectREmployeeLogin;
 import com.revature.projectr.model.ProjectRManagerLogin;
 import com.revature.projectr.model.ProjectRModelRegister;
 
@@ -51,13 +50,13 @@ public class ProjectRLoginPostgress implements LoginDAO {
   }
 
   @Override
-  public ProjectRManagerLogin mLogin(String username, String password) {    
+  public ProjectRManagerLogin mLogin(String username , String password) {    
     ProjectRManagerLogin out = null;
     PreparedStatement stmt = null;
     ResultSet rs = null;
 
     try {
-      stmt = conn.prepareStatement("SELECT * FROM managerLogin WHERE username = ?,passcode = ? ");
+      stmt = conn.prepareStatement("SELECT * FROM managerLogin WHERE username = ? AND passcode = ?");
       stmt.setString(1, username);
       stmt.setString(2, password);
       stmt.execute();
@@ -74,13 +73,13 @@ public class ProjectRLoginPostgress implements LoginDAO {
   }
 
   @Override
-  public ProjectREmployeeLogin eLogin(String username, String password) {
-    ProjectREmployeeLogin out = null;
+  public ProjectRModelRegister eLogin(String username, String password) {
+    ProjectRModelRegister out = null;
     PreparedStatement stmt = null;
     ResultSet rs = null;
 
     try {
-      stmt = conn.prepareStatement("SELECT * FROM employeeRegister WHERE username = ?,passcode = ? ");
+      stmt = conn.prepareStatement("SELECT * FROM employeeRegister WHERE username = ? AND passcode = ? ");
       stmt.setString(1, username);
       stmt.setString(2, password);
       stmt.execute();
@@ -88,7 +87,7 @@ public class ProjectRLoginPostgress implements LoginDAO {
         rs = stmt.getResultSet();
       }
       while (rs.next()) {
-        out = new ProjectREmployeeLogin(rs.getString("username"), rs.getString("passcode"));
+        out = new ProjectRModelRegister();
       }
     } catch (SQLException e) {
 

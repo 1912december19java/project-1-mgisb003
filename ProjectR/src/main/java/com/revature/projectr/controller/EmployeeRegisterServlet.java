@@ -9,7 +9,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.projectr.model.ProjectRModelRegister;
 import com.revature.projectr.repository.LoginDAO;
 import com.revature.projectr.repository.ProjectRLoginPostgress;
-import com.revature.projectr.service.RegisterService;
 
 
 public class EmployeeRegisterServlet extends HttpServlet{
@@ -33,6 +32,9 @@ public class EmployeeRegisterServlet extends HttpServlet{
     String password = req.getParameter("registerPassword");
     String confirmPassword = req.getParameter("registerConfirmPassword");
     
+    if (username == "" || password == "") {
+      
+    }
     ProjectRModelRegister register = new ProjectRModelRegister();
     register.setRegisterFirstName(firstName);
     register.setRegisterLastName(lastName);
