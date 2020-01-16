@@ -90,10 +90,10 @@ public class ProjectRLoginPostgress implements LoginDAO {
         out = new ProjectRModelRegister();
       }
     } catch (SQLException e) {
-
-    }
-    return out;
+    }    
+    return out;    
   }
+  
 
 }
 

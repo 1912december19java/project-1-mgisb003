@@ -27,10 +27,20 @@ public class EmployeeLoginServlet extends HttpServlet {
     String username = req.getParameter("employeeUsername");
     String password = req.getParameter("employeePassword");
     
+    if (username == "" || password == "") {
+      req.getRequestDispatcher("WEB-INF/ProjectOneWebsite/EmployeeLogin.html").forward(req, resp);
+    }
+    
     ProjectRModelRegister eLogin = empLogin.eLogin(username, password);
+    if (eLogin == null) {
+      req.getRequestDispatcher("WEB-INF/ProjectOneWebsite/EmployeeLogin.html").forward(req, resp); 
+    }
+    
     eLogin.setRegisterUsername(username);
     eLogin.setRegisterPassword(password);
     
+    
+    req.getRequestDispatcher("WEB-INF/ProjectOneWebsite/Employee.html").forward(req, resp);
     System.out.println("" + eLogin);
     
   }
