@@ -36,4 +36,24 @@
   <url-pattern>/manager</url-pattern>
   </servlet-mapping>
   
+    <servlet>
+  <servlet-name>mHomePage</servlet-name>
+  <servlet-class>com.revature.projectr.controller.ManagerHomePageServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>mHomePage</servlet-name>
+  <url-pattern>/managerhome</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+  <servlet-name>eHomePage</servlet-name>
+  <servlet-class>com.revature.projectr.controller.EmployeeHomePageServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>eHomePage</servlet-name>
+  <url-pattern>/employeehome</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

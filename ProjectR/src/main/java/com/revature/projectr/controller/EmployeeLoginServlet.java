@@ -1,6 +1,7 @@
 package com.revature.projectr.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -33,12 +34,21 @@ public class EmployeeLoginServlet extends HttpServlet {
     
     ProjectRModelRegister eLogin = empLogin.eLogin(username, password);
     if (eLogin == null) {
-      req.getRequestDispatcher("WEB-INF/ProjectOneWebsite/EmployeeLogin.html").forward(req, resp); 
-    }
-    
+//      resp.setContentType("text/html");
+//      PrintWriter out = resp.getWriter();
+//      String message = "incorrect username or password";
+//      out.println("<HTML>");
+//      out.println("<HEAD><TITLE>" + message + "</TITLE></HEAD>");
+//      out.println("<BODY>");      
+//      out.println("<H2>" + message + "</H2><input class=\"btn\" type='submit' name='submit' >");
+//      out.println("<HR>");
+//      out.println("</BODY></HTML>");
+//      Object submit = req.getAttribute("submit");
+      req.getRequestDispatcher("WEB-INF/ProjectOneWebsite/EmployeeLogin.html").forward(req, resp);  
+            
+    }    
     eLogin.setRegisterUsername(username);
-    eLogin.setRegisterPassword(password);
-    
+    eLogin.setRegisterPassword(password);    
     
     req.getRequestDispatcher("WEB-INF/ProjectOneWebsite/Employee.html").forward(req, resp);
     System.out.println("" + eLogin);

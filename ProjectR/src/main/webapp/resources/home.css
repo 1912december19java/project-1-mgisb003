@@ -37,10 +37,52 @@
     text-align: center;
 }
 
+#custom-button{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-family: sans-serif;
+    font-size: medium;
+    color: white;
+    background-color: rgb(0, 19, 194);
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
+#custom-button:hover{
+    background-color: turquoise;
+}
 
+#custom-text{
+    padding-top: 13px;
+    padding-bottom: 8px;
+    padding-right: 100px;
+    padding-left: 100px;
+    margin-left: -11px;
+    border: 1px solid black;
+    border-left: unset;
+    border-right: unset;
+    font-family: sans-serif;
+    font-size: small;
+    color: gray;
+}
 
+#custom-upload:hover{
+    background-color: turquoise;
+}
 
+#custom-upload{
+    margin-left: -15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-family: sans-serif;
+    font-size: medium;
+    color: white;
+    background-color: rgb(0, 19, 194);
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
 
 
