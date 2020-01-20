@@ -20,7 +20,6 @@ public class EmployeeHomePageServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
-    System.out.println("ReachedEH");
     
     HttpSession session = req.getSession();    
     ObjectMapper obj = new ObjectMapper();
@@ -33,32 +32,22 @@ public class EmployeeHomePageServlet extends HttpServlet {
   
   @Override
   protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-      throws ServletException, IOException {
-    
-    
-    
-    
-//    HttpSession session = req.getSession();
-//    
-//   session.getAttribute("account");
-   
-   
-   
+      throws ServletException, IOException {  
   
    
-//   LoginDAO user = new ProjectRLoginPostgress();
-//   String username = req.getParameter("employeeUsername");
-//   String newFirstName= req.getParameter("updateFirstName");
-//   String newLastName= req.getParameter("updateLastName");
-//   String newUsername= req.getParameter("updateUsername");
-//   String newEmail= req.getParameter("updateEmail");
-//   String newPassword= req.getParameter("updatePassword");
-//   
-//   ProjectRAccount updateInfo = new ProjectRAccount(newFirstName, newLastName, newEmail, newUsername, newPassword);
-//   
-//   user.update(updateInfo, username);
-//   
-//   System.out.println(updateInfo);
+   LoginDAO user = new ProjectRLoginPostgress();
+   String username = req.getParameter("employeeUsername");
+   String newFirstName= req.getParameter("updateFirstName");
+   String newLastName= req.getParameter("updateLastName");
+   String newUsername= req.getParameter("updateUsername");
+   String newEmail= req.getParameter("updateEmail");
+   String newPassword= req.getParameter("updatePassword");
+   
+   ProjectRAccount updateInfo = new ProjectRAccount(newFirstName, newLastName, newEmail, newUsername, newPassword);
+   
+   user.update(updateInfo, username);
+   
+   System.out.println(updateInfo);
    
   }
 }

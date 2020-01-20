@@ -1,6 +1,6 @@
-`use strict`;
-let newRegister = document.getElementById("newUI");
-const poemDisplay = document.querySelector("#newRegister");
+'use strict'
+
+
 const getData = () => {
   return fetch(`http://localhost:8081/projectr/eHome`);
 };

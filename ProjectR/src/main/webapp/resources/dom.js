@@ -1,39 +1,21 @@
-const fName = document.querySelector('#register-first-name');
-const lName = document.querySelector('#register-last-name');
-const email = document.querySelector('#register-email');
-const uUser = document.querySelector('#register-username');
-const uPass = document.querySelector('#register-password');
-//const eUser = document.querySelector('#employee-username');
-//const ePass = document.querySelector('#employee-password');
-const newUI = document.getElementById('newUI')
+'use strict'
 
-//newUI.addEventListener('submit',(e)=>{
-//  console.log(fName,lName,email,uUser,uPass);
-//});
-		
-// async function getPosts(){
-//  await fetch(`http://localhost:8081/projectr/eLogin`, {
-//	  method:"POST"
-//  })
-//  .then(res => res.json())
-//    .then(res => console.log(res))
-//}
-//
-//
-//    const post {
-//	body:
-//      document.getElementById("fName").innerHTML = uData.firstName;
-//      document.getElementById("lName").innerHTML = uData.lastName;
-//      document.getElementById("uEmail").innerHTML = uData.email;
-//      document.getElementById("uUser").innerHTML = uData.username;
-//      document.getElementById("uPass").innerHTML = uData.password;
-//}
-//
-//getPosts();
-//    // getElem by id logic
-//    console.log(uData);
-//  })
-//  //.catch(err => console.error(err));
+
+const getData = () => {
+  return fetch(`http://localhost:8081/projectr/mHome`);
+};
+getData()
+  .then(res => res.json())
+  .then(json => {
+    let uData = json;
+    
+      document.getElementById("mUser").innerHTML += uData.managerUsername;
+      document.getElementById("mPass").innerHTML += uData.managerPassword;
+    
+    
+    console.log(json);
+  })
+  .catch(err => console.error(err));
 //
 //let sortDirection = false;
 //
