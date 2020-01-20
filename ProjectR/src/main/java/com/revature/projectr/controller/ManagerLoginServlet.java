@@ -2,6 +2,7 @@ package com.revature.projectr.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,6 +11,7 @@ import com.revature.projectr.model.ProjectRModelRegister;
 import com.revature.projectr.repository.LoginDAO;
 import com.revature.projectr.repository.ProjectRLoginPostgress;
 
+@WebServlet(name = "mLogin", urlPatterns = {"/mLogin"})
 public class ManagerLoginServlet extends HttpServlet {
   
   @Override
@@ -28,10 +30,7 @@ public class ManagerLoginServlet extends HttpServlet {
     String username = req.getParameter("managerUsername");
     String password = req.getParameter("managerPassword"); 
     
-    if (username == "" || password == "") {
-      req.getRequestDispatcher("WEB-INF/ProjectOneWebsite/ManagerLogin.html").forward(req, resp);
-    }
-    
+
     ProjectRManagerLogin mLogin = manLogin.mLogin(username,password);    
     if (mLogin == null) {
       req.getRequestDispatcher("WEB-INF/ProjectOneWebsite/ManagerLogin.html").forward(req, resp); 

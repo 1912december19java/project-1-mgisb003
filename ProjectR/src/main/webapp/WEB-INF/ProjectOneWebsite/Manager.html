@@ -11,7 +11,7 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="/projectr/resources/bootstrap.min.css" />
     <link rel="stylesheet" href="/projectr/resources/home.css" />
   </head>
   <body>
@@ -39,49 +39,56 @@
     <div class="row">
       <div class="col-md-6 text-uppercase text-dark" style= ' padding: 20px' id= "manager-requests">
         <h3>Requests</h3>
-        <div class="table-responsive">
-        <table class="table table-striped table-hover">
+        <div>
+        <table>
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Receipt</th>                             
+                <th>First</th>
+                <th>Last</th>
+                <th>Receipt</th>                             
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+            <tbody id="tableData">
             </tbody>
           </table> 
         </div>     
       </div>  
-      <div class='col-md-6 text-dark text-uppercase'  style= ' padding: 20px' id="requests-accepted">
+      <div class='col-md-6 text-success text-uppercase'  style= ' padding: 20px' id="requests-accepted">
         <h3>Requests Accepted</h3>  
-        <br/>
+        <div>
+            <table>
+                <thead>
+                  <tr>
+                    <th>First</th>
+                    <th>Last</th>
+                    <th>Receipt</th>                             
+                  </tr>
+                </thead>
+                <tbody id="tableDataAccepted">
+                </tbody>
+              </table> 
+            </div>     
       </div>       
-      <div class='col-md-6 offset-md-6 text-dark text-uppercase'  style= ' padding: 20px' id="requests-denied">
-        <h3>Requests Denied</h3>  
+      <div class='col-md-6 offset-md-6 text-danger text-uppercase'  style= ' padding: 20px' id="requests-denied">
+        <h3>Requests Denied</h3>
+        <div>
+            <table>
+                <thead>
+                  <tr>
+                    <th>First</th>
+                    <th>Last</th>
+                    <th>Receipt</th>                             
+                  </tr>
+                </thead>
+                <tbody id="tableDataDenied">
+                </tbody>
+              </table> 
+            </div>       
       </div>      
     </div>  
   </main>
 
-
+  <script src="/projectr/resources/don.js"></script>
   </body>
 </html>
+

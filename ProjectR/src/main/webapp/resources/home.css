@@ -40,12 +40,15 @@
 #custom-button{
     padding-top: 8px;
     padding-bottom: 8px;
+    margin-left: 23px;
     font-family: sans-serif;
     font-size: medium;
     color: white;
     background-color: rgb(0, 19, 194);
     border: 1px solid black;
     border-radius: 5px;
+    border-top-right-radius: unset;
+    border-bottom-right-radius: unset;
     cursor: pointer;
 }
 
@@ -58,13 +61,13 @@
     padding-bottom: 8px;
     padding-right: 100px;
     padding-left: 100px;
-    margin-left: -11px;
     border: 1px solid black;
     border-left: unset;
     border-right: unset;
     font-family: sans-serif;
     font-size: small;
-    color: gray;
+    color: black;
+    background-color: grey;
 }
 
 #custom-upload:hover{
@@ -84,6 +87,50 @@
     cursor: pointer;
 }
 
+table{
+    border-collapse: collapse;
+    width: 100%;
+    
+}
+td,th{
+    border: 1px solid black;
+    padding: 8px;
+    color: black;
+    
+}
 
+th{
+    background-color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
 
+tr:nth-child(odd){    
+    background-color: white;
+}
+
+tr:nth-child(even){    
+    background-color: #dddddd;
+}
+
+tr:hover{
+    background-color: grey;
+}
+
+body{
+    background: linear-gradient( 45deg,#51667e, #1160a5, #21a4d6, #1160a5,#51667e);
+    background-size: 600%;
+    position: relative;
+    animation: change 20s ease-in-out infinite alternate;
+}
+
+@keyframes change {
+    0%{
+        background-position: left;
+    }
+    
+    100%{
+        background-position: right;
+    }
+}
 

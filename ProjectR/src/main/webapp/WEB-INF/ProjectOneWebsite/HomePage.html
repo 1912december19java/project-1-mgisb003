@@ -47,28 +47,25 @@
       <br/>
       <label for='registerFirstName'>First Name</label>
       <br/>
-      <input type='text' class = 'form-control' name='registerFirstName' id ="register-first-name" placeholder="enter first name">
+      <input type='text' class = 'form-control' name='registerFirstName' id ="register-first-name" placeholder="enter first name" required>
       <label for='registerLastName'>Last Name</label>
       <br/>
-      <input type='text' class = 'form-control' name='registerLastName' id ="register-last-name" placeholder="enter last name">
+      <input type='text' class = 'form-control' name='registerLastName' id ="register-last-name" placeholder="enter last name" required>
       <label for='registerEmail'>Email</label>
       <br/>
-      <input type='email' class = 'form-control' name='registerEmail' id='register-email' placeholder="enter email">
+      <input type='email' class = 'form-control' name='registerEmail' id='register-email' placeholder="enter email" required>
       <label for='registerUsername'>Username</label>
       <br/>
-      <input type='text' class = 'form-control' name='registerUsername' id='register-username' placeholder="enter username">
+      <input type='text' class = 'form-control' name='registerUsername' id='register-username' placeholder="enter username" required>
       <label for='registerPassword'>Password</label>
       <br/>
-      <input type='text' class = 'form-control' name='registerPassword' id='register-password' placeholder="enter password">
-      <label for='registerConfirmPassword'>Confirm Password</label>
-      <br/>
-      <input type='text' class = 'form-control' name='registerConfirmPassword' id='register-confirm-password' placeholder="re-enter password"> 
-      <br/>      
-      <input class="btn text-light" type='submit'>
+      <input type='text' class = 'form-control' name='registerPassword' id='register-password' placeholder="enter password" required>    
+      <br/> 
+      <input id="newUI" class="btn text-light" type='submit'>
     </form>
   </div>
 </div>  
     </main>
-    <script src = 'dom.js'></script>  
+    <script src ="http://localhost:8081/projectr/resources/dom.js"></script>  
 </body>
 </html>

@@ -3,57 +3,5 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-
   <display-name>Archetype Created Web Application</display-name>
-  
-  <servlet>
-  <servlet-name>register</servlet-name>
-  <servlet-class>com.revature.projectr.controller.EmployeeRegisterServlet</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-  <servlet-name>register</servlet-name>
-  <url-pattern>/register</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  <servlet-name>eLogin</servlet-name>
-  <servlet-class>com.revature.projectr.controller.EmployeeLoginServlet</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-  <servlet-name>eLogin</servlet-name>
-  <url-pattern>/employee</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  <servlet-name>mLogin</servlet-name>
-  <servlet-class>com.revature.projectr.controller.ManagerLoginServlet</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-  <servlet-name>mLogin</servlet-name>
-  <url-pattern>/manager</url-pattern>
-  </servlet-mapping>
-  
-    <servlet>
-  <servlet-name>mHomePage</servlet-name>
-  <servlet-class>com.revature.projectr.controller.ManagerHomePageServlet</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-  <servlet-name>mHomePage</servlet-name>
-  <url-pattern>/managerhome</url-pattern>
-  </servlet-mapping>
-  
-    <servlet>
-  <servlet-name>eHomePage</servlet-name>
-  <servlet-class>com.revature.projectr.controller.EmployeeHomePageServlet</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-  <servlet-name>eHomePage</servlet-name>
-  <url-pattern>/employeehome</url-pattern>
-  </servlet-mapping>
-  
 </web-app>

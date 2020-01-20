@@ -7,15 +7,10 @@ public class ProjectRModelRegister {
   private String registerEmail;
   private String registerUsername;
   private String registerPassword;
-  private String registerConfirmPassword;
+  
   
   public ProjectRModelRegister() {
     super();
-//    this.registerEmail = registerEmail;
-//    this.registerFirstName = registerFirstName;
-//    this.registerLastName = registerLastName;
-//    this.registerUsername = registerUsername;
-//    this.registerPassword = registerPassword;
         
   }
 
@@ -59,28 +54,19 @@ public class ProjectRModelRegister {
     this.registerPassword = registerPassword;
   }
 
-  public String getRegisterConfirmPassword() {
-    return registerConfirmPassword;
-  }
-
-  public void setRegisterConfirmPassword(String registerConfirmPassword) {
-    this.registerConfirmPassword = registerConfirmPassword;
-  }
 
   @Override
   public String toString() {
     return "ProjectRModel [registerFirstName=" + registerFirstName + ", registerLastName="
         + registerLastName + ", registerEmail=" + registerEmail + ", registerUsername="
         + registerUsername + ", registerPassword=" + registerPassword + ", registerConfirmPassword="
-        + registerConfirmPassword + "]";
+        + "]";
   }
 
   @Override
   public int hashCode() {
     final int prime = 31;
-    int result = 1;
-    result = prime * result
-        + ((registerConfirmPassword == null) ? 0 : registerConfirmPassword.hashCode());
+    int result = 1;      
     result = prime * result + ((registerEmail == null) ? 0 : registerEmail.hashCode());
     result = prime * result + ((registerFirstName == null) ? 0 : registerFirstName.hashCode());
     result = prime * result + ((registerLastName == null) ? 0 : registerLastName.hashCode());
@@ -98,11 +84,6 @@ public class ProjectRModelRegister {
     if (getClass() != obj.getClass())
       return false;
     ProjectRModelRegister other = (ProjectRModelRegister) obj;
-    if (registerConfirmPassword == null) {
-      if (other.registerConfirmPassword != null)
-        return false;
-    } else if (!registerConfirmPassword.equals(other.registerConfirmPassword))
-      return false;
     if (registerEmail == null) {
       if (other.registerEmail != null)
         return false;

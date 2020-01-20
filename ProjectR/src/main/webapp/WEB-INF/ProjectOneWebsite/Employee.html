@@ -11,9 +11,9 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="/projectr/resources/bootstrap.min.css" />
     <link rel="stylesheet" href="/projectr/resources/home.css" />
-  </head>
+   </head>
   <body>
     <!--Button group nav-->
     <nav class="navbar">
@@ -39,31 +39,145 @@
       <div class="row">
         <div class="col-md-6 text-uppercase text-dark" style=" padding: 20px" id="employee-requests">
           <h3>Requests</h3>
-            <div class="input-group" id="receipt">
-            <div class="custom-file">
-            <input type="file" id="real-file" hidden="hidden">
-            <button type="button" id="custom-button">Choose File</button>
-            <span id="custom-text">choose file</span>
-            <button type="button" id="custom-upload">Upload</button>
+          <form method="post" enctype="multipart/form-data">
+            <div>
+              <label for="file">Choose file to upload</label>
+              <input type="file" id="file" name="file" multiple>
+            </div>
+            <div>
+              <button>Submit</button>
+            </div>
+           </form>
+        </div>
+
+        <div class="col-md-6 text-success text-uppercase" style=" padding: 20px" id="employee-accepted">
+          <h3>Requests Accepted</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Receipt</th>                             
+              </tr>
+            </thead>
+            <tbody id="tableDataAccepted">
+            </tbody>
+          </table> 
+        </div>            
+
+        <div class="col-md-6 text-warning text-uppercase" style=" padding: 20px" id="employee-denied" >
+          <h3>Requests pending</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Receipt</th>                             
+              </tr>
+            </thead>
+            <tbody id="tableDataPending">
+            </tbody>
+          </table> 
+        </div>         
+
+        <div class="col-md-6 text-danger text-uppercase" style=" padding: 20px" id="employee-denied" >
+          <h3>Requests Denied</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Receipt</th>                             
+              </tr>
+            </thead>
+            <tbody id="tableDataDenied">
+            </tbody>
+          </table> 
+        </div>     
+      </div>
+
+      
+       <!-- Button trigger modal -->
+      <div class="col-md-3">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#userInfo">User Info</button>
+        <div class="modal fade" id="userInfo">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button class="close" data-dismiss="modal">&CircleTimes;</button>
+                <h3>User Info</h3>
+              </div>
+              <div class="modal-body">
+                  <br/>
+                  <a id="fName">First Name:</a>
+                  <br/>
+                  <a id="lName">Last Name:</a>
+                  <br/>
+                  <a id="uEmail">Email:</a>
+                  <br/>
+                  <a id="uUser">Username:</a>
+                  <br/>
+                  <a id="uPass">Password:</a> 
+                  <br/>                                                   
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">close</button>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <!-- Button trigger modal -->
+      <div class="col-md-3">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateInfo">Update Info</button>
+        <div class="modal fade" id="updateInfo">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button class="close" data-dismiss="modal">&CircleTimes;</button>
+                <h3>Update Info</h3>
+              </div>
+              <div class="modal-body">
+                <form id = 'updateForm' action ='http://localhost:8081/projectr/eHome' method='POST'>
+                  <br/>
+                  <label for='registerFirstName'>First Name</label>
+                  <br/>
+                  <input type='text' class = 'form-control' name='updateFirstName' id ="update-first-name" placeholder="enter new first name" required>
+                  <label for='registerLastName'>Last Name</label>
+                  <br/>
+                  <input type='text' class = 'form-control' name='updateLastName' id ="update-last-name" placeholder="enter new last name" required>
+                  <label for='registerEmail'>Email</label>
+                  <br/>
+                  <input type='email' class = 'form-control' name='updateEmail' id='update-email' placeholder="enter new email" required>
+                  <label for='registerUsername'>Username</label>
+                  <br/>
+                  <input type='text' class = 'form-control' name='updateUsername' id='update-username' placeholder="enter new username" required>
+                  <label for='registerPassword'>Password</label>
+                  <br/>
+                  <input type='text' class = 'form-control' name='updatePassword' id='update-password' placeholder="enter new password" required>    
+                  <br/>                                    
+                </form>                
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-dismiss="modal">Update</button>
+              </div>
             </div>
           </div>
         </div>
-
-        <div class="col-md-6 text-dark text-uppercase" style=" padding: 20px" id="employee-accepted">
-          <h3>Requests Accepted</h3>
-          <br />
         </div>
+            </main>
 
-        <div class="col-md-6 text-dark text-uppercase" style=" padding: 20px" id="employee-denied" >
-          <h3>Requests pending</h3>
-        </div>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
 
-        <div class="col-md-6 text-dark text-uppercase" style=" padding: 20px" id="employee-denied" >
-          <h3>Requests Denied</h3>
-        </div>
-      </div>
-    </main>
-
-    <script src="/projectr/resources/dom.js"></script>
+    <script src="/projectr/resources/don.js"></script>
   </body>
 </html>
+
