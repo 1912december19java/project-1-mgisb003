@@ -46,7 +46,8 @@ public class EmployeeRegisterServlet extends HttpServlet{
     newAccount.register(register);
     session.setAttribute("register", register);    
     
-    req.getRequestDispatcher("WEB-INF/ProjectOneWebsite/EmployeeLogin.html").forward(req, resp);
+    resp.sendRedirect("ProjectOneWebsite/EmployeeLogin.html");
+//    req.getRequestDispatcher("WEB-INF/ProjectOneWebsite/EmployeeLogin.html").forward(req, resp);
     }    
   }
 

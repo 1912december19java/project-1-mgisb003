@@ -1,7 +1,7 @@
 package com.revature.projectr.repository;
 
 
-import com.revature.projectr.model.ProjectRAccount;
+import java.util.List;
 import com.revature.projectr.model.ProjectRManagerLogin;
 import com.revature.projectr.model.ProjectRModelRegister;
 import com.revature.projectr.model.ReceiptUploadTest;
@@ -14,8 +14,10 @@ public interface LoginDAO {
   
   public void upload(ReceiptUploadTest upload);
   
-  ProjectRAccount userInfo(String username, String password);
+  ProjectRModelRegister userInfo(String username, String password);
   
-  public void update(ProjectRAccount update, String username);
+  public void update(ProjectRModelRegister update);
+
+  List<ProjectRModelRegister> getAll();
 
 }

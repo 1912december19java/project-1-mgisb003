@@ -1,5 +1,9 @@
 'use strict'
 
+//window.addEventListener('onLoad', (event)=>{
+//    event.preventDefault();
+//    getData();
+//});
 
 const getData = () => {
   return fetch(`http://localhost:8081/projectr/eHome`);
@@ -9,11 +13,11 @@ getData()
   .then(json => {
     let uData = json;
     
-      document.getElementById("fName").innerHTML += uData.firstName;
-      document.getElementById("lName").innerHTML += uData.lastName;
-      document.getElementById("uEmail").innerHTML += uData.email;
-      document.getElementById("uUser").innerHTML += uData.username;
-      document.getElementById("uPass").innerHTML += uData.password;
+      document.getElementById("fName").innerHTML += uData.registerFirstName;
+      document.getElementById("lName").innerHTML += uData.registerLastName;
+      document.getElementById("uEmail").innerHTML += uData.registerEmail;
+      document.getElementById("uUser").innerHTML += uData.registerUsername;
+      document.getElementById("uPass").innerHTML += uData.registerPassword;
     
     
     console.log(json);

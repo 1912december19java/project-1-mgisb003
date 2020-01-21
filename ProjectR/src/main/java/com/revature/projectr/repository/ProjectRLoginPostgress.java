@@ -5,7 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.revature.projectr.model.ProjectRAccount;
+import java.util.ArrayList;
+import java.util.List;
 import com.revature.projectr.model.ProjectRManagerLogin;
 import com.revature.projectr.model.ProjectRModelRegister;
 import com.revature.projectr.model.ReceiptUploadTest;
@@ -94,8 +95,8 @@ public class ProjectRLoginPostgress implements LoginDAO {
   }
 
   @Override
-  public ProjectRAccount userInfo(String username, String password) {
-    ProjectRAccount out = null;
+  public ProjectRModelRegister userInfo(String username, String password) {
+    ProjectRModelRegister out = null;
     PreparedStatement stmt = null;
     ResultSet rs = null;
 
@@ -109,29 +110,54 @@ public class ProjectRLoginPostgress implements LoginDAO {
         rs = stmt.getResultSet();
       }
       while (rs.next()) {
-        out = new ProjectRAccount(rs.getString("firstname"), rs.getString("lastname"),
+        out = new ProjectRModelRegister(rs.getString("firstname"), rs.getString("lastname"),
             rs.getString("email"), rs.getString("username"), rs.getString("passcode"));
       }
     } catch (SQLException e) {
     }
     return out;
   }
+  
+ 
 
   @Override
-  public void update(ProjectRAccount update, String username) {
+  public void update(ProjectRModelRegister update) {  
     PreparedStatement stmt = null;
     try {
       stmt = conn.prepareStatement(
           "UPDATE employeeRegister SET firstname = ?,lastname = ?,username = ?,email = ?,passcode = ? WHERE username = ?");
-      stmt.setString(1, update.getFirstName());
-      stmt.setString(2, update.getLastName());
-      stmt.setString(3, update.getUsername());
-      stmt.setString(4, update.getEmail());
-      stmt.setString(5, update.getPassword());
-      stmt.setString(6, username);
+      stmt.setString(1, update.getRegisterFirstName());
+      stmt.setString(2, update.getRegisterLastName());
+      stmt.setString(3, update.getRegisterUsername());
+      stmt.setString(4, update.getRegisterEmail());
+      stmt.setString(5, update.getRegisterPassword());
+      stmt.setString(6, update.getRegisterUsername());
       stmt.execute();
     } catch (SQLException e) {
     }
+  }
+  
+  @Override
+  public List<ProjectRModelRegister> getAll() {
+    
+    List<ProjectRModelRegister> allEmployees = new ArrayList<ProjectRModelRegister>();
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+
+    try {
+      stmt = conn.prepareStatement("SELECT firstname,lastname FROM employeeRegister");
+
+      if (stmt.execute()) {
+        rs = stmt.getResultSet();
+      }
+      while (rs.next()) {
+        allEmployees.add(new ProjectRModelRegister(rs.getString("firstname"), rs.getString("lastname"),
+            rs.getString("email"), rs.getString("username"), rs.getString("passcode")));
+      }
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    return allEmployees;
   }
 
 

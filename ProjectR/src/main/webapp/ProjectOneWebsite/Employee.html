@@ -11,16 +11,16 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/projectr/resources/bootstrap.min.css" />
-    <link rel="stylesheet" href="/projectr/resources/home.css" />
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="home.css" />
    </head>
   <body>
     <!--Button group nav-->
     <nav class="navbar">
-      <nav class="nav-pills">
-        <a class="navbar-brand text-light" href="Employee.html">Project R</a>
-        <a class="btn btn-info text-light border-0" name="Logout">Logout</a>
-      </nav>
+        <nav class="nav-pills"> 
+            <a class="navbar-brand text-light">Project R</a>       
+              <a class="btn btn-info text-light border-0" href="EmployeeLogin.html">Logout</a>        
+        </nav>
     </nav>
 
     <!--Page heading-->
@@ -103,15 +103,15 @@
               </div>
               <div class="modal-body">
                   <br/>
-                  <a id="fName">First Name:</a>
+                  <a id="fName">First Name: </a>
                   <br/>
-                  <a id="lName">Last Name:</a>
+                  <a id="lName">Last Name: </a>
                   <br/>
-                  <a id="uEmail">Email:</a>
+                  <a id="uEmail">Email: </a>
                   <br/>
-                  <a id="uUser">Username:</a>
+                  <a id="uUser">Username: </a>
                   <br/>
-                  <a id="uPass">Password:</a> 
+                  <a id="uPass">Password: </a> 
                   <br/>                                                   
               </div>
               <div class="modal-footer">
@@ -131,8 +131,8 @@
                 <button class="close" data-dismiss="modal">&CircleTimes;</button>
                 <h3>Update Info</h3>
               </div>
-              <div class="modal-body">
-                <form id = 'updateForm' action ='http://localhost:8081/projectr/eHome' method='POST'>
+              <form id = 'updateFormE' action ='http://localhost:8081/projectr/eHome' method='POST'>
+              <div class="modal-body">                
                   <br/>
                   <label for='registerFirstName'>First Name</label>
                   <br/>
@@ -143,18 +143,13 @@
                   <label for='registerEmail'>Email</label>
                   <br/>
                   <input type='email' class = 'form-control' name='updateEmail' id='update-email' placeholder="enter new email" required>
-                  <label for='registerUsername'>Username</label>
-                  <br/>
-                  <input type='text' class = 'form-control' name='updateUsername' id='update-username' placeholder="enter new username" required>
                   <label for='registerPassword'>Password</label>
                   <br/>
                   <input type='text' class = 'form-control' name='updatePassword' id='update-password' placeholder="enter new password" required>    
-                  <br/>                                    
-                </form>                
-              </div>
-              <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" data-dismiss="modal">Update</button>
-              </div>
+                  <br/>                   
+                <input id="updateUI" type="submit" class="btn btn-primary" data-dismiss="modal">
+              </div>              	
+              </form>
             </div>
           </div>
         </div>
@@ -177,7 +172,9 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="/projectr/resources/don.js"></script>
+	<script src="doe.js"></script>
+    <script src="don.js"></script>
+    
   </body>
 </html>
 

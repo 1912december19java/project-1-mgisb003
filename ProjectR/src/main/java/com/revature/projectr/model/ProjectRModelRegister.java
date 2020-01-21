@@ -14,6 +14,15 @@ public class ProjectRModelRegister {
         
   }
 
+  public ProjectRModelRegister(String registerFirstName, String registerLastName, String registerEmail, String registerUsername,
+      String registerPassword) {
+    this.registerFirstName = registerFirstName;
+    this.registerLastName = registerLastName;
+    this.registerEmail = registerEmail;
+    this.registerUsername = registerUsername;
+    this.registerPassword = registerPassword;
+  }
+
   public String getRegisterFirstName() {
     return registerFirstName;
   }
@@ -57,10 +66,9 @@ public class ProjectRModelRegister {
 
   @Override
   public String toString() {
-    return "ProjectRModel [registerFirstName=" + registerFirstName + ", registerLastName="
-        + registerLastName + ", registerEmail=" + registerEmail + ", registerUsername="
-        + registerUsername + ", registerPassword=" + registerPassword + ", registerConfirmPassword="
-        + "]";
+    return "ProjectRModel [firstName=" + registerFirstName + ", lastName="
+        + registerLastName + ", email=" + registerEmail + ", username="
+        + registerUsername + ", password=" + registerPassword + "]";
   }
 
   @Override
