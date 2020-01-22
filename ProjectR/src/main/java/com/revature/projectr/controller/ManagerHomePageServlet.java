@@ -16,16 +16,13 @@ public class ManagerHomePageServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
-    
-    
-    System.out.println("reached MHPS");
+   
     HttpSession session = req.getSession();    
     ObjectMapper obj = new ObjectMapper();    
      
     String mLogin = obj.writeValueAsString(session.getAttribute("mLogin"));    
     PrintWriter out= resp.getWriter();    
     out.print(mLogin);        
-    System.out.println("" + mLogin);
     
   }  
   

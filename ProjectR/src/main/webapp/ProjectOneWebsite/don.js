@@ -1,10 +1,5 @@
 'use strict'
 
-//window.addEventListener('onLoad', (event)=>{
-//    event.preventDefault();
-//    getData();
-//});
-
 const getData = () => {
   return fetch(`http://localhost:8081/projectr/eHome`);
 };

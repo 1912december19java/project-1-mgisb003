@@ -154,6 +154,30 @@
           </div>
         </div>
         </div>
+        <!-- Button trigger modal -->
+      <div class="col-md-3">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sReqInf">Send Request</button>
+        <div class="modal fade" id="sReqInf">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button class="close" data-dismiss="modal">&CircleTimes;</button>
+                <h3>Request Info</h3>
+              </div>
+              <form id = 'sRequestForm' action ='http://localhost:8081/projectr/sRequest' method='POST'>
+              <div class="modal-body">                
+                  <br/>
+                  <label for='requestAmount'>Amount</label>
+                  <br/>
+                  <input type='number' class = 'form-control' name='requestAmount' id ="request-amount" placeholder="enter new request amount" required> 
+                  <br/>                   
+                <input id="sRequestBtn" type="submit" class="btn btn-primary" data-dismiss="modal">
+              </div>              	
+              </form>
+            </div>
+          </div>
+        </div>
+        </div>
             </main>
 
     <script
@@ -173,7 +197,8 @@
     ></script>
 
 	<script src="doe.js"></script>
-    <script src="don.js"></script>
+  <script src="don.js"></script>
+  <script src="dor.js"></script>
     
   </body>
 </html>

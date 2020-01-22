@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.revature.projectr.model.ProjectRManagerLogin;
 import com.revature.projectr.model.ProjectRModelRegister;
-import com.revature.projectr.model.ReceiptUploadTest;
+import com.revature.projectr.model.Request;
 
 public class ProjectRLoginPostgress implements LoginDAO {
 
@@ -78,23 +78,6 @@ public class ProjectRLoginPostgress implements LoginDAO {
   }
 
   @Override
-  public void upload(ReceiptUploadTest upload) {
-    PreparedStatement stmt = null;
-    while (true) {
-      try {
-        stmt = conn.prepareStatement("INSERT INTO receipt(receipt) VALUES (?)");
-        stmt.setString(1, upload.getBlob());
-        stmt.execute();
-
-        break;
-      } catch (SQLException e) {
-        System.out.println("Username is already in use: ");
-        break;
-      }
-    }
-  }
-
-  @Override
   public ProjectRModelRegister userInfo(String username, String password) {
     ProjectRModelRegister out = null;
     PreparedStatement stmt = null;
@@ -158,6 +141,29 @@ public class ProjectRLoginPostgress implements LoginDAO {
       e.printStackTrace();
     }
     return allEmployees;
+  }
+
+  @Override
+  public void sendRequest(Request request) {
+    PreparedStatement stmt = null;
+    while (true) {
+      try {
+        stmt = conn.prepareStatement(
+            "INSERT INTO receipt(eUser,amount) VALUES (?,?)");
+        stmt.setString(1, request.geteUser());
+        stmt.setString(2, request.getAmount());
+        stmt.execute();
+        break;
+      } catch (SQLException e) {        
+        break;
+      }
+    }
+  }
+
+  @Override
+  public void answerRequest(Request request) {
+    // TODO Auto-generated method stub
+    
   }
 
 
