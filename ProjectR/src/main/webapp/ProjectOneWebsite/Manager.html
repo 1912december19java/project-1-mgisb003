@@ -18,7 +18,7 @@
     <!--Button group nav-->
     <nav class="navbar">
         <nav class="nav-pills"> 
-            <a class="navbar-brand text-light">Project R</a>       
+            <a class="navbar-brand text-light" href="Manager.html">Project R</a>       
               <a class="btn btn-info text-light border-0" href="ManagerLogin.html">Logout</a>        
         </nav>
     </nav>
@@ -101,7 +101,7 @@
             </div>       
       </div>      
     </div>  
-        
+    
   <!-- Button trigger modal -->
       <div class="col-md-3">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#userInfo">User Info</button>
@@ -124,6 +124,60 @@
             </div>
           </div>
           </div>
+        </div>
+        <!-- Button trigger modal -->
+      <div class="col-md-3">
+        <input type="submit" class="btn btn-primary" data-toggle="modal" data-target="#PendReqM" id='pendingReqBtn' value="View Pending Requests">
+        <div class="modal fade" id="PendReqM">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button class="close" data-dismiss="modal">&CircleTimes;</button>
+                <h3>Pending Requests</h3>
+              </div>
+              <form id = 'ManPendReqForm' action ='http://localhost:8081/projectr/rRequest' method='GET'>
+              <div class="modal-body" id="viewPendingM">                
+              </div>              	
+              </form>
+            </div>
+          </div>
+        </div>
+        </div>
+        <!-- Button trigger modal -->
+      <div class="col-md-3">
+        <input type="submit" class="btn btn-primary" data-toggle="modal" data-target="#ProcReqM" id='procReqBtn' value="View Processed Requests">
+        <div class="modal fade" id="ProcReqM">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button class="close" data-dismiss="modal">&CircleTimes;</button>
+                <h3>Processed Requests</h3>
+              </div>
+              <form id = 'ManProcReqForm' action ='http://localhost:8081/projectr/mHome' method='GET'>
+              <div class="modal-body" id="viewProcM">                
+              </div>              	
+              </form>
+            </div>
+          </div>
+        </div>
+        </div>
+         <!-- Button trigger modal -->
+      <div class="col-md-3">
+        <input type="submit" class="btn btn-primary" data-toggle="modal" data-target="#employeeM" id='empBtn' value="View All Employees">
+        <div class="modal fade" id="employeeM">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button class="close" data-dismiss="modal">&CircleTimes;</button>
+                <h3>Employees</h3>
+              </div>
+              <form id = 'ManEmpForm' action ='http://localhost:8081/projectr/vEmployed' method='GET'>
+              <div class="modal-body" id="viewEmpM">                
+              </div>              	
+              </form>
+            </div>
+          </div>
+        </div>
         </div>
             </main>
 

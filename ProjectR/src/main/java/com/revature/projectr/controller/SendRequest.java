@@ -2,6 +2,8 @@ package com.revature.projectr.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,13 +24,20 @@ public class SendRequest extends HttpServlet{
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
-    System.out.println("reached sRequest servlet");
-    HttpSession session = req.getSession();    
-    ObjectMapper obj = new ObjectMapper();    
-     
-    String eLogin = obj.writeValueAsString(session.getAttribute("eLogin"));    
-    PrintWriter out= resp.getWriter();    
-    out.print(eLogin); 
+    
+    HttpSession session = req.getSession();       
+    LoginDAO empDao = new ProjectRLoginPostgress();       
+    List<Request> pendingList = new ArrayList<Request>();    
+    ProjectRModelRegister eInfo = (ProjectRModelRegister) session.getAttribute("eLogin");
+
+    pendingList = empDao.getAll(eInfo.getRegisterUsername());
+    
+    String pListJson = obj.writeValueAsString(pendingList);
+    PrintWriter out = resp.getWriter();
+    out.print(pListJson);
+    
+    
+    
   }
   
   @Override

@@ -2,10 +2,10 @@ let sRequestForm = document.getElementById("sRequestForm");
 let employeeAmount = document.getElementById("request-amount");
 let sendRequest = document.getElementById("sRequestBtn");
 
+
 let sendRequestUri = "http://localhost:8081/projectr/sRequest";
 
-sendRequest.addEventListener('click', (event)=>{
-    
+sendRequest.addEventListener('click', (event)=>{    
     console.log('received click');
     event.preventDefault();    
     sendRequestAmount();

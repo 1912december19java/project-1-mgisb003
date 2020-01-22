@@ -121,14 +121,38 @@ public class ProjectRLoginPostgress implements LoginDAO {
   }
   
   @Override
-  public List<ProjectRModelRegister> getAll() {
+  public List<Request> getAll(String username) {
+    
+    List<Request> allPendingRequests = new ArrayList<Request>();
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+
+    try {
+      stmt = conn.prepareStatement("SELECT * FROM receipt WHERE eUser = ?");
+      stmt.setString(1, username);
+
+      if (stmt.execute()) {
+        rs = stmt.getResultSet();
+      }
+      while (rs.next()) {
+        allPendingRequests.add(new Request(rs.getInt("id"), rs.getString("receipt"),
+            rs.getString("euser"), rs.getBoolean("decision"), rs.getString("manname"), rs.getString("amount")));
+      }
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    return allPendingRequests;
+  }
+  @Override
+  public List<ProjectRModelRegister> getAllEmployees() {
     
     List<ProjectRModelRegister> allEmployees = new ArrayList<ProjectRModelRegister>();
     PreparedStatement stmt = null;
     ResultSet rs = null;
 
     try {
-      stmt = conn.prepareStatement("SELECT firstname,lastname FROM employeeRegister");
+      stmt = conn.prepareStatement("SELECT firstname,lastname,username FROM employeeregister");
+      
 
       if (stmt.execute()) {
         rs = stmt.getResultSet();
@@ -141,6 +165,52 @@ public class ProjectRLoginPostgress implements LoginDAO {
       e.printStackTrace();
     }
     return allEmployees;
+  }
+  
+  @Override
+  public List<Request> getAllPending() {
+    
+    List<Request> allPendingRequests = new ArrayList<Request>();
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+
+    try {
+      stmt = conn.prepareStatement("SELECT * FROM receipt WHERE decision is NULL");
+
+      if (stmt.execute()) {
+        rs = stmt.getResultSet();
+      }
+      while (rs.next()) {
+        allPendingRequests.add(new Request(rs.getInt("id"), rs.getString("receipt"),
+            rs.getString("euser"), rs.getBoolean("decision"), rs.getString("manname"), rs.getString("amount")));
+      }
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    return allPendingRequests;
+  }
+  
+  @Override
+  public List<Request> getAllNotPending() {
+    
+    List<Request> allNotPendingRequests = new ArrayList<Request>();
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+
+    try {
+      stmt = conn.prepareStatement("SELECT * FROM receipt WHERE decision is NOT NULL");
+
+      if (stmt.execute()) {
+        rs = stmt.getResultSet();
+      }
+      while (rs.next()) {
+        allNotPendingRequests.add(new Request(rs.getInt("id"), rs.getString("receipt"),
+            rs.getString("euser"), rs.getBoolean("decision"), rs.getString("manname"), rs.getString("amount")));
+      }
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    return allNotPendingRequests;
   }
 
   @Override
@@ -162,11 +232,21 @@ public class ProjectRLoginPostgress implements LoginDAO {
 
   @Override
   public void answerRequest(Request request) {
-    // TODO Auto-generated method stub
+    PreparedStatement stmt = null;
+    try {
+      stmt = conn.prepareStatement(
+          "UPDATE receipt SET manname = ?,decision = ? WHERE username = ?");
+      stmt.setString(1, request.getManUser());
+      stmt.setBoolean(2, request.getDecision());
+      stmt.setString(3, request.geteUser());
+      stmt.execute();
+    } catch (SQLException e) {
+    }
+  }
     
   }
 
 
-}
+
 
 

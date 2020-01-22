@@ -3,6 +3,7 @@
 const getData = () => {
   return fetch(`http://localhost:8081/projectr/eHome`);
 };
+
 getData()
   .then(res => res.json())
   .then(json => {
@@ -20,37 +21,55 @@ getData()
   .catch(err => console.error(err));
 
 
+let appendRequestUri = "http://localhost:8081/projectr/sRequest";
+let viewPending = document.getElementById('viewPending');
+let pendingReqs = document.getElementById('pendingReqBtn');;
 
 
+pendingReqs.addEventListener('click', (event) => {
+    event.preventDefault();
+    viewPendingInfo();
+});
 
+async function viewPendingInfo() {
+    let pendingRequests = await fetch(appendRequestUri, { method: 'GET' });
+    let pendingReqsText = await pendingRequests.text();
+    viewPending.innerHTML = '';
 
+    JSON.parse(pendingReqsText, function (key, value) {
+        if (key == "amount") {
+            let pRequests = document.createElement('p');
+            pRequests.innerText = "$" + value;
+            viewPending.appendChild(pRequests);
+        }
+    });
+}
 
-//let sortDirection = false;
-//
-//            let personData = [
-//            { first : 'dillon', last: 'tree', receipt:24 },
-//            { first : 'bianca', last: 'fire', receipt:27 },
-//            { first : 'max', last:'raze', receipt:34 },
-//            { first : 'alex', last: 'ground', receipt:54 },
-//            { first : 'corey', last: 'right', receipt:22 },           
-//            ];
-//
-//            window.addEventListener('load', (e) => {
-//                loadTableData(personData);
-//            });
-//
-//function loadTableData(){ 
-//    const tableBody = document.getElementById("tableData");  
-//    const tableBodyAccepted = document.getElementById("tableDataAccepted");
-//    const tableBodyDenied = document.getElementById("tableDataDenied");         
-//    let dataHtml = '';
-//
-//    for (let person of personData){
-//        dataHtml += `<tr><td>${person.first}</td><td>${person.last}</td><td>${person.receipt}</td></tr>`;
-//    }
-//    console.log(dataHtml);
-//
-//    tableBody.innerHTML = dataHtml;
-//    tableBodyAccepted.innerHTML = dataHtml;
-//    tableBodyDenied.innerHTML = dataHtml;
-//    }
+let appendRequestUri = "http://localhost:8081/projectr/eHome";
+let viewProc = document.getElementById('viewProc');
+let procReqs = document.getElementById('procReqBtn');
+
+procReqs.addEventListener('click', (event) => {
+    event.preventDefault();
+    viewProcessedInfo();
+});
+
+async function viewProcessedInfo() {
+    let procRequests = await fetch(appendRequestUri, { method: 'GET' });
+    let procReqsText = await procRequests.text();
+    viewProc.innerHTML = '';
+
+    JSON.parse(pendingReqsText, function (key, value) {
+        if (key == "decision") {
+        	if (value == "true"){
+            let appRequests = document.createElement('p');
+            appRequests.innerText = "$" + amount.value + " Reimbursement Approved";
+            viewProc.appendChild(appRequests);
+        	} else if (value == "false"){
+        		let denRequests = document.createElement('p');
+                denRequests.innerText = "$" + amount.value + " Reimbursement Denied";
+                viewProc.appendChild(denRequests);        		
+        	}
+        }
+    });
+}

@@ -20,6 +20,12 @@ public interface LoginDAO {
   
   public void update(ProjectRModelRegister update);
 
-  List<ProjectRModelRegister> getAll();
+  List<Request> getAll(String username);
+
+  List<Request> getAllPending();
+
+  List<Request> getAllNotPending();
+
+  List<ProjectRModelRegister> getAllEmployees();
 
 }

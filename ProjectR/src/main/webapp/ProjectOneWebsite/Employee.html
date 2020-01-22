@@ -63,20 +63,9 @@
           </table> 
         </div>            
 
-        <div class="col-md-6 text-warning text-uppercase" style=" padding: 20px" id="employee-denied" >
-          <h3>Requests pending</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>Receipt</th>                             
-              </tr>
-            </thead>
-            <tbody id="tableDataPending">
-            </tbody>
-          </table> 
-        </div>         
+               
 
-        <div class="col-md-6 text-danger text-uppercase" style=" padding: 20px" id="employee-denied" >
+        <div class="col-md-6 offset-md-6 text-danger text-uppercase" style=" padding: 20px" id="employee-denied" >
           <h3>Requests Denied</h3>
           <table>
             <thead>
@@ -89,6 +78,7 @@
           </table> 
         </div>     
       </div>
+      
 
       
        <!-- Button trigger modal -->
@@ -167,11 +157,47 @@
               <form id = 'sRequestForm' action ='http://localhost:8081/projectr/sRequest' method='POST'>
               <div class="modal-body">                
                   <br/>
-                  <label for='requestAmount'>Amount</label>
+                  <label for='registerFirstName'>Amount</label>
                   <br/>
                   <input type='number' class = 'form-control' name='requestAmount' id ="request-amount" placeholder="enter new request amount" required> 
                   <br/>                   
                 <input id="sRequestBtn" type="submit" class="btn btn-primary" data-dismiss="modal">
+              </div>              	
+              </form>
+            </div>
+          </div>
+        </div>
+        </div>
+        <!-- Button trigger modal -->
+      <div class="col-md-3">
+        <input type="submit" class="btn btn-primary" data-toggle="modal" data-target="#PendReq" id='pendingReqBtn' value="View Pending Requests">
+        <div class="modal fade" id="PendReq">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button class="close" data-dismiss="modal">&CircleTimes;</button>
+                <h3>Pending Requests</h3>
+              </div>
+              <form id = 'PendReqForm' action ='http://localhost:8081/projectr/sRequest' method='GET'>
+              <div class="modal-body" id="viewPending">                
+              </div>              	
+              </form>
+            </div>
+          </div>
+        </div>
+        </div>
+        <!-- Button trigger modal -->
+      <div class="col-md-3">
+        <input type="submit" class="btn btn-primary" data-toggle="modal" data-target="#ProcReqE" id='procReqBtn' value="View Processed Requests">
+        <div class="modal fade" id="ProcReqE">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button class="close" data-dismiss="modal">&CircleTimes;</button>
+                <h3>Processed Requests</h3>
+              </div>
+              <form id = 'ProcReqFormE' action ='http://localhost:8081/projectr/rRequest' method='GET'>
+              <div class="modal-body" id="viewProc">                
               </div>              	
               </form>
             </div>
