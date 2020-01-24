@@ -44,32 +44,3 @@ async function viewPendingInfo() {
         }
     });
 }
-
-let appendRequestUri = "http://localhost:8081/projectr/eHome";
-let viewProc = document.getElementById('viewProc');
-let procReqs = document.getElementById('procReqBtn');
-
-procReqs.addEventListener('click', (event) => {
-    event.preventDefault();
-    viewProcessedInfo();
-});
-
-async function viewProcessedInfo() {
-    let procRequests = await fetch(appendRequestUri, { method: 'GET' });
-    let procReqsText = await procRequests.text();
-    viewProc.innerHTML = '';
-
-    JSON.parse(pendingReqsText, function (key, value) {
-        if (key == "decision") {
-        	if (value == "true"){
-            let appRequests = document.createElement('p');
-            appRequests.innerText = "$" + amount.value + " Reimbursement Approved";
-            viewProc.appendChild(appRequests);
-        	} else if (value == "false"){
-        		let denRequests = document.createElement('p');
-                denRequests.innerText = "$" + amount.value + " Reimbursement Denied";
-                viewProc.appendChild(denRequests);        		
-        	}
-        }
-    });
-}

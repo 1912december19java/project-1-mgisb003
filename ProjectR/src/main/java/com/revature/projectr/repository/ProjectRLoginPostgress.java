@@ -151,8 +151,7 @@ public class ProjectRLoginPostgress implements LoginDAO {
     ResultSet rs = null;
 
     try {
-      stmt = conn.prepareStatement("SELECT firstname,lastname,username FROM employeeregister");
-      
+      stmt = conn.prepareStatement("SELECT * FROM employeeregister");      
 
       if (stmt.execute()) {
         rs = stmt.getResultSet();

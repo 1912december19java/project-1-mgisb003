@@ -16,23 +16,24 @@ import com.revature.projectr.model.Request;
 import com.revature.projectr.repository.LoginDAO;
 import com.revature.projectr.repository.ProjectRLoginPostgress;
 
-@WebServlet(name = "vEmployed", urlPatterns = {"/vEmployed"})
-public class AllEmployeesServlet extends HttpServlet {
-
+@WebServlet(name = "pReq", urlPatterns = {"/pReq"})
+public class SubmittedRequestResponse extends HttpServlet {
+  
   private static ObjectMapper obj = new ObjectMapper();
   
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
+           
+    LoginDAO empDao = new ProjectRLoginPostgress();       
+    List<Request> procList = new ArrayList<Request>();    
 
-    LoginDAO manDao = new ProjectRLoginPostgress();
-    List<ProjectRModelRegister> employeeList = new ArrayList<ProjectRModelRegister>();
-
-    employeeList = manDao.getAllEmployees();
-
-    String eListJson = obj.writeValueAsString(employeeList);
+    procList = empDao.getAllNotPending();
+    
+    String pListJson = obj.writeValueAsString(procList);
+    System.out.println(pListJson);
     PrintWriter out = resp.getWriter();
-    out.print(eListJson);
-
+    out.print(pListJson);
   }
+
 }

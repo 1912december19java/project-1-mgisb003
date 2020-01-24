@@ -9,7 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.projectr.model.ProjectRManagerLogin;
 import com.revature.projectr.model.Request;
 import com.revature.projectr.repository.LoginDAO;
 import com.revature.projectr.repository.ProjectRLoginPostgress;
@@ -31,6 +33,22 @@ public class RespondRequests extends HttpServlet {
     String pListJson = obj.writeValueAsString(pendingList);
     PrintWriter out = resp.getWriter();
     out.print(pListJson);
+    
   }  
+  
+  @Override
+  protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+      throws ServletException, IOException {
+   
+    LoginDAO manDao = new ProjectRLoginPostgress();
+    Request manOne = new Request();
+    HttpSession session = req.getSession();
+    
+    ProjectRManagerLogin man = (ProjectRManagerLogin) session.getAttribute("mLogin");
+    man = obj.readValue(req.getReader(), ProjectRManagerLogin.class);
+
+    man.setManagerUsername(man.getManagerUsername());
+    manDao.answerRequest(manOne);
+  }
 
 }

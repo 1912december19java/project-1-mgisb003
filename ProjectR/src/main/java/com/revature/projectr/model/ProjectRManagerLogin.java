@@ -5,6 +5,10 @@ public class ProjectRManagerLogin {
   private String managerUsername;
   private String managerPassword;
 
+  public ProjectRManagerLogin() {
+    super();
+  }
+
   public ProjectRManagerLogin(String managerUsername,String managerPassword) {
     this.managerPassword = managerPassword;
     this.managerUsername = managerUsername;
