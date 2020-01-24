@@ -45,9 +45,9 @@ public class RespondRequests extends HttpServlet {
     HttpSession session = req.getSession();
     
     ProjectRManagerLogin man = (ProjectRManagerLogin) session.getAttribute("mLogin");
-    man = obj.readValue(req.getReader(), ProjectRManagerLogin.class);
+    manOne = obj.readValue(req.getReader(), Request.class);
 
-    man.setManagerUsername(man.getManagerUsername());
+    manOne.setManUser(man.getManagerUsername());
     manDao.answerRequest(manOne);
   }
 

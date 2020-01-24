@@ -128,7 +128,7 @@ public class ProjectRLoginPostgress implements LoginDAO {
     ResultSet rs = null;
 
     try {
-      stmt = conn.prepareStatement("SELECT * FROM receipt WHERE eUser = ?");
+      stmt = conn.prepareStatement("SELECT * FROM receipt WHERE eUser = ? and decision is NULL");
       stmt.setString(1, username);
 
       if (stmt.execute()) {
@@ -234,13 +234,36 @@ public class ProjectRLoginPostgress implements LoginDAO {
     PreparedStatement stmt = null;
     try {
       stmt = conn.prepareStatement(
-          "UPDATE receipt SET manname = ?,decision = ? WHERE username = ?");
+          "UPDATE receipt SET manname = ?,decision = ? WHERE id = ?");
       stmt.setString(1, request.getManUser());
       stmt.setBoolean(2, request.getDecision());
-      stmt.setString(3, request.geteUser());
+      stmt.setInt(3, request.getId());
       stmt.execute();
     } catch (SQLException e) {
     }
+  }
+
+  @Override
+  public List<Request> getAllNotPending(String Employee) {
+    List<Request> allNotPendingRequests = new ArrayList<Request>();
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+
+    try {
+      stmt = conn.prepareStatement("SELECT * FROM receipt WHERE decision is NOT NULL and eUser = ?");
+      stmt.setString(1, Employee);
+
+      if (stmt.execute()) {
+        rs = stmt.getResultSet();
+      }
+      while (rs.next()) {
+        allNotPendingRequests.add(new Request(rs.getInt("id"), rs.getString("receipt"),
+            rs.getString("euser"), rs.getBoolean("decision"), rs.getString("manname"), rs.getString("amount")));
+      }
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    return allNotPendingRequests;
   }
     
   }

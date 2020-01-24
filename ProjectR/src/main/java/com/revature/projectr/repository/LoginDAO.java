@@ -28,4 +28,6 @@ public interface LoginDAO {
 
   List<ProjectRModelRegister> getAllEmployees();
 
+  List<Request> getAllNotPending(String Employee);
+
 }

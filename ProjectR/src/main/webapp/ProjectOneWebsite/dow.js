@@ -1,23 +1,23 @@
 'use strict'
 
-let pReqUri = "http://localhost:8081/projectr/pReq";
-let viewProcReq = document.getElementById('viewProcM');
-let seeProcReqs = document.getElementById('procReqBtn');
+let pReqUriE = "http://localhost:8081/projectr/pReqE";
+let viewProcReqE = document.getElementById('viewProcE');
+let seeProcReqsE = document.getElementById('procReqBtnE');
 
 
-seeProcReqs.addEventListener('click', (event)=>{
+seeProcReqsE.addEventListener('click', (event)=>{
     event.preventDefault();
-    procReqs();
+    procReqsE();
 });
 
 
-async function procReqs() {
-    let processedReqs = await fetch(pReqUri, { method: 'GET' });
-    let Preqs = await processedReqs.text();
+async function procReqsE() {
+    let processedReqsE = await fetch(pReqUriE, { method: 'GET' });
+    let PreqsE = await processedReqsE.text();
     let ob = {};
-    viewProcReq.innerHTML = '';
+    viewProcReqE.innerHTML = '';
 
-    JSON.parse(Preqs, function (key, value) {
+    JSON.parse(PreqsE, function (key, value) {
 
         if (key == "id") {
             ob.id = value;
@@ -43,7 +43,7 @@ async function procReqs() {
             console.log(pReqInfo);
             pReqInfo.innerText = "Request: $" + ob.amount + " Employee: " + ob.blob + " Approved by: " + ob.manUser;
             
-            viewProcReq.appendChild(pReqInfo);
+            viewProcReqE.appendChild(pReqInfo);
             ob = {}; 
             
         	}else if(ob.decision == false){
@@ -51,7 +51,7 @@ async function procReqs() {
                 pReqInfo.setAttribute('id',`column ${ob.id}`);
                 pReqInfo.innerText = "Request: $" + ob.amount + " Employee: " + ob.blob + " Denied by: " + ob.manUser;
                 console.log(pReqInfo);
-                viewProcReq.appendChild(pReqInfo);
+                viewProcReqE.appendChild(pReqInfo);
                 
                 ob = {};
         	}
